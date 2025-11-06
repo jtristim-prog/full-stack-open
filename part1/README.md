@@ -115,6 +115,39 @@ npm run dev -- --host 0.0.0.0 --port 5173
 OK
 
 -asenna vs code docker compose?
+cd C:\Users\JuhaRistimäki\OneDrive - Remion Oy\Documents\siviiliasiat\opiskelu\full-stack-open\part1\my-react-app
+
+1) Initialize the Vite/React app (inside the container)
+
+Open a shell in the dev service:
+
+docker compose run --rm dev sh
+
+
+Now inside the container shell:
+
+npm create vite@latest .     # note the dot to use /app (your host folder)
+npm install
+exit
+
+You should now see the generated files on your Windows folder.
+
+2) 
+From your host terminal (PowerShell, Git Bash, etc.):
+
+docker compose up vite
+
+
+Open http://localhost:5173
+ in your browser 🎉
+
+If you prefer to keep it all in the one-off style:
+
+docker compose run --rm --service-ports dev npm run dev -- --host
+
+
+(--service-ports publishes ports defined in the service; -- --host is passed to Vite.)
+
 -reactin muuttaminen vs codella
 -volume, jotta muutokset säilyvät
 -git containeriin
