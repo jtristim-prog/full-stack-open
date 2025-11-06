@@ -1,3 +1,5 @@
+name: opiskelu
+
 services:
   dev:
     image: node:24-alpine
